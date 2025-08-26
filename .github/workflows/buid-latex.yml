@@ -46,13 +46,13 @@ jobs:
         uses: actions/checkout@v4
         with:
           lfs: true
-      - name: Change Name and NUSP
-        env:
-          PERSON_2: ${{ secrets.PERSON_2 }}
-          PERSON_ID_2: ${{ secrets.PERSON_ID_2 }}
-        run: |
-          sed -i "s/{{PERSON-2}}/$PERSON_2/g" ${{ matrix.files }}/resumo.tex
-          sed -i "s/{{PERSON-ID-2}}/$PERSON_ID_2/g" ${{ matrix.files }}/resumo.tex
+      #- name: Change Name and NUSP
+      #  env:
+      #    PERSON_2: ${{ secrets.PERSON_2 }}
+      #    PERSON_ID_2: ${{ secrets.PERSON_ID_2 }}
+      #  run: |
+      #    sed -i "s/{{PERSON-2}}/$PERSON_2/g" ${{ matrix.files }}/resumo.tex
+      #    sed -i "s/{{PERSON-ID-2}}/$PERSON_ID_2/g" ${{ matrix.files }}/resumo.tex
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v3
         with:
