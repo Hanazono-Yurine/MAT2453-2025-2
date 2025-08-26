@@ -1,0 +1,48 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage{graphicx} % Required for inserting images
+\graphicspath{{images/}}
+\usepackage[a4paper, left=30mm, right=20mm, top=30mm, bottom=20mm]{geometry}
+\usepackage{float} % pra conseguir usar o \begin{figure}[H]
+\usepackage{indentfirst} % pra fazer tab n 1 paragrafos dos capitulos
+% package pra tabela
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{subfiles}
+
+\title{
+	Resumo de Cálculo I - MAT2354
+}
+
+\author{
+	Alunos:
+	\\  
+	\\ {{PERSON-2}} - N.USP: {{PERSON-ID-2}}
+	\\ \\
+	\\ Professor: Louca da Silva
+}
+
+\date{\today}
+
+\begin{document}
+
+	\maketitle
+	\thispagestyle{empty}
+	\newpage
+
+	\section{Completando Quadrados}
+
+	\subfile{chapters/quadrados}
+
+	\section{Delta}
+
+	\subfile{chapters/delta}
+
+	\section{Secantes às Parábolas e Coeficientes Angulares}
+
+	\subfile{chapters/secantes}
+
+	\section{Análise gráfica de funções polinomiais do terceiro grau}
+
+	\subfile{chapters/analise}
+
+\end{document}
