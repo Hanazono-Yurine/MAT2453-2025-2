@@ -46,13 +46,34 @@ jobs:
         uses: actions/checkout@v4
         with:
           lfs: true
-      #- name: Change Name and NUSP
-      #  env:
-      #    PERSON_2: ${{ secrets.PERSON_2 }}
-      #    PERSON_ID_2: ${{ secrets.PERSON_ID_2 }}
-      #  run: |
-      #    sed -i "s/{{PERSON-2}}/$PERSON_2/g" ${{ matrix.files }}/resumo.tex
-      #    sed -i "s/{{PERSON-ID-2}}/$PERSON_ID_2/g" ${{ matrix.files }}/resumo.tex
+      - name: Change Name and NUSP
+        # Probably there's a better way to do this (of doing this?, IDK, i dont speak freedom), but im not in the mood to search how to
+        env:
+          PERSON_1: ${{ secrets.PERSON_1 }}
+          PERSON_ID_1: ${{ secrets.PERSON_ID_1 }}
+          PERSON_2: ${{ secrets.PERSON_2 }}
+          PERSON_ID_2: ${{ secrets.PERSON_ID_2 }}
+          PERSON_3: ${{ secrets.PERSON_3 }}
+          PERSON_ID_3: ${{ secrets.PERSON_ID_3 }}
+          PERSON_4: ${{ secrets.PERSON_4 }}
+          PERSON_ID_4: ${{ secrets.PERSON_ID_4 }}
+          PERSON_5: ${{ secrets.PERSON_5 }}
+          PERSON_ID_5: ${{ secrets.PERSON_ID_5 }}
+          PERSON_6: ${{ secrets.PERSON_6 }}
+          PERSON_ID_6: ${{ secrets.PERSON_ID_6 }}
+        run: |
+          sed -i "s/{{PERSON-1}}/$PERSON_1/g" ${{ matrix.files }}/resumo.tex
+          sed -i "s/{{PERSON-ID-1}}/$PERSON_ID_1/g" ${{ matrix.files }}/resumo.tex
+          sed -i "s/{{PERSON-2}}/$PERSON_2/g" ${{ matrix.files }}/resumo.tex
+          sed -i "s/{{PERSON-ID-2}}/$PERSON_ID_2/g" ${{ matrix.files }}/resumo.tex
+          sed -i "s/{{PERSON-3}}/$PERSON_3/g" ${{ matrix.files }}/resumo.tex
+          sed -i "s/{{PERSON-ID-3}}/$PERSON_ID_3/g" ${{ matrix.files }}/resumo.tex
+          sed -i "s/{{PERSON-4}}/$PERSON_4/g" ${{ matrix.files }}/resumo.tex
+          sed -i "s/{{PERSON-ID-4}}/$PERSON_ID_4/g" ${{ matrix.files }}/resumo.tex
+          sed -i "s/{{PERSON-5}}/$PERSON_5/g" ${{ matrix.files }}/resumo.tex
+          sed -i "s/{{PERSON-ID-5}}/$PERSON_ID_5/g" ${{ matrix.files }}/resumo.tex
+          sed -i "s/{{PERSON-6}}/$PERSON_6/g" ${{ matrix.files }}/resumo.tex
+          sed -i "s/{{PERSON-ID-6}}/$PERSON_ID_6/g" ${{ matrix.files }}/resumo.tex
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v3
         with:
