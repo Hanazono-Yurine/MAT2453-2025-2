@@ -5,23 +5,21 @@
 
 	Uma das formas de se encontrar as raizes de uma função é o processo de completar quadrados.
 
-	O grau de um equação está relacionado a quantidade de soluções de uma função, ou seja, uma função
-	de primeiro grau terá uma única solução, um função de segundo grau terá duas soluções e assim por diante.
+	O grau de uma equação está relacionado a quantidade de soluções de uma função - uma função
+	de primeiro grau terá uma única solução, uma função de segundo grau terá duas soluções e assim por diante.
 
-	Funções de segundo grau normalmente se encontram na seguinte forma:
+	Funções de segundo grau normalmente são representadas na seguinte forma:
 
 	\[ ax^2 + bx + c = 0 \]
 
-	Existe diferentes formas de se resolver uma equação utilizando o metdo de completar quadrados, tudo depende 
-	da própria equação.
+	Existe diferentes formas de se resolver uma equação utilizando o método de completar quadrados
+	mas, de modo geral, todas elas envolvem algum dos produtos notáveis abaixo:
 
 	\subsection{Trinômio Quadrado Perfeito}
 
-	[WIP] Esplicar oque é um trinômio perfeito
+	Para compreender plenamente esse conceito, é necessário primeiro antes definir o conceito de polinômios.
 
-	Para compreender esse conceito, é necessário primeiro definir o conceito de polinômios.
-
-	\subsubsection{Polinômios}
+	\subsubsection{Polinômios - conceitos básicos}
 
 	Polinômios são expressões matemáticas da forma:
 	\[a_1x^n + a_2x^{n-1} + ... + a_{n-1}x^1 + a_n \quad \textrm{t.q.} \quad a \in \mathbb{R}, n \in \mathbb{Z}\]
@@ -39,11 +37,14 @@
 	quadrado perfeito". Um trinômio do quadrado perfeito é aquele que pode ser reduzido à forma:
 
 	\[(a + b)^2\]
+	ou;
+	\[(a - b)^2\]
 
-	Reescrevendo essa expressão como \((a + b)(a - b)\), e realizando uma distributiva, chegamos
+	Reescrevendo a primeira expressão como \((a + b)(a + b)\), e realizando uma distributiva, chegamos
 	à seguinte relação:
 
 	\[(a + b)^2 = a^2 + 2ab + b^2\]
+	
 
 	Visualizando esses termos geométricamente, nota-se que eles resultam em um quadrado,
 	de lado \(x + y\), como pode ser visto na figura abaixo. É a partir dessa característica
@@ -56,6 +57,18 @@
 		\label{fig: Visualização geométrica do trinômio quadrado perfeito}
 	\end{figure}
 
+	Perceba que a mesma manipulação também pode ser feita com a expressão \((a - b)^2\), que resultará em:
+
+	\[(a - b)^2 = a^2 - 2ab + b^2\]
+
+
+	\subsubsection{Resolvendo equações de segundo grau com trinômios quadrados perfeitos}
+
+	A partir da definição dada anteriormente de trinômio quadrado perfeito, pode-se resolver
+	algumas equações de segundo grau. Para tal, e necessário que a equação em questão possa ser escrita
+	na forma \((a + b)^2\), vejamos por exemplo, a equação:
+	
+	\[x^2 + 6x + 9\]
 
 
 	Quando a equação é um trinômio quadrado perfeito, temos que primeiro tranforma-la em um produto notável
@@ -84,5 +97,17 @@
 	\subsection{Não é Trinômio Quadrado Perfeito}
 
 	\subsection{Coeficiente "a" diferente de 1}
+
+	Para as equações cujos coeficientes $a$ sejam diferentes de 1, basta
+	realizar operações algébricas de modo a torná-lo 1. O jeito mais simples
+	é dividir todos os termos da equação por $a$.
+
+	\[ax^2 + bx + c = 0 \quad \leftrightarrow \]
+
+	\[\frac{ax^2}{a} + \frac{bx}{a} + \frac{c}{a} = 0 \quad \leftrightarrow \]
+
+	\[x^2 + \frac{bx}{a} + \frac{c}{a} = 0\]
+
+	Com essa última equação, o método de completar quadrados pode ser aplicado.
 
 \end{document}
