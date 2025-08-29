@@ -2,4 +2,116 @@
 \graphicspath{{\subfix{../images/}}}
 
 \begin{document}
+	Vamos começar esse assunto com uma imagem que mostra a base do cálculo diferencial:
+	a transição de uma taxa de variação média (a reta secante) para uma taxa de variação instantânea (a reta tangente):
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=.5\linewidth]{secante}
+		\caption{Reta secante ao gráfico}
+		\label{fig:secante}
+
+	\end{figure}
+
+	Obs.: As deduções serão feitas com base na nomenclatura contida na imagem.
+
+	\subsection{Definições iniciais}
+	
+	\begin{itemize}
+		\item Função: $f(x) = ax^2 + bx + c$
+		\item Dois pontos no gráfico: $A = (x0, f(x0))$ e $B = (x1, f(x1))$
+	\end{itemize}
+
+	A reta secante conecta os pontos $A$ e $B$. Seu coeficiente angular, que chamaremos de $m_{sec}$,
+	é a taxa de variação média da função entre $x_0$ e $x_1$.
+
+	\subsection{Dedução do Coeficiente Angular da Reta Secante $(m_{sec})$}
+
+	A fórmula do coeficiente angular é a variação em $y$ dividida pela variação em $x$.
+
+	\[ m_{sec} = \frac{f(x_1) - f(x_0)}{x_1 - x_0} \]
+
+	Substituindo a fórmula da função $f(x)$:
+
+	\[ m_{sec} = \frac{(ax_1^2 + bx_1 + c) - (ax_0^2 + bx_0 + c)}{x_1 - x_0} \]
+
+	Simplificando o numerador, o termo $c$ se cancela. Agrupando os termos $a$ e $b$:
+
+	\[ m_{sec} = \frac{a(x_1^2 - x_0^2) + b(x_1 - x_0)}{x_1 - x_0} \]
+
+	Usando a propriedade da diferença de quadrados, $x_1^2 - x_0^2 = (x_1 - x_0)(x_1 + x_0)$:
+
+	\[ m_{sec} = \frac{a(x_1 - x_0)(x_1 + x_0) + b(x_1 - x_0)}{x_1 - x_0} \]
+
+	Podemos colocar $(x_1 - x_0)$ em evidência no numerador:
+
+	\[ m_{sec} = \frac{(x_1 - x_0)(a(x_1 + x_0) + b)}{x_1 - x_0} \]
+
+	Finalmente, cancelamos o termo $(x_1 - x_0)$ do numerador e do denominador:
+
+	\[ m_{sec} = a(x_1 + x_0) + b \]
+
+	\subsection{A Transição para a Reta Tangente: O Processo do Limite}
+
+	A reta tangente aparece quando imaginamos o ponto $B$ se aproximando do ponto $A$, ou seja,
+	quando $x_1$ tende a $x_0$. O coeficiente angular da tangente ($m_{tan}$) é o limite de $m_{sec}$ nesse processo.
+
+	\[ m_{tan} = \lim_{x_1\to x_0} a(x_1 + x_0) + b \]
+
+	Só que na prática para calcular esse limite, simplesmente substituímos $x_1$ por $x_0$ na fórmula final de $m_{sec}$:
+
+	\begin{align*}
+		m_{tan} &= a(x_0 + x_0) + b \\
+		m_{tan} &= a(2x_0) + b \\
+		m_{tan} &= 2ax_0 + b \\
+	\end{align*}
+
+	Este resultado é a derivada da função no ponto $x_0$, que escrevemos como $f'(x_0)$. A fórmula geral da derivada é:
+
+	\[ f'(x) = 2ax + b \]
+
+	\subsection{Dedução Alternativa (Formulação com h)}
+
+	Outra forma de ver o mesmo problema é definir a distância horizontal entre os pontos como $h$.
+
+	$h = x_1 - x_0$, o que significa que $x_1 = x_0 + h$.
+
+	Quando $x_1$ se aproxima de $x_0$, a distância $h$ se aproxima de $0$.
+
+	A fórmula de $m_{sec}$ se torna:
+
+	\[ m_{sec} = \frac{f(x_0 + h) - f(x_0)}{h} \]
+
+	Substituindo a função $f(x)$:
+
+	\[ m_{sec} = \frac{(a(x_0 + h)^2 + b(x_0 + h) + c) - (ax_0^2 + bx_0 + c)}{h} \]
+
+	Expandindo o termo $(x_0+h)^2$ e simplificando:
+
+	\begin{align*}
+		m_{sec} &= \frac{a(x_0^2 + 2x_0h + h^2) + bx_0 + bh - ax_0^2 - bx_0}{h} \\
+		m_{sec} &= \frac{2ax_0h + ah^2 + bh}{h} \\
+	\end{align*}
+
+	Colocamos $h$ em evidência no numerador:
+
+	\[ m_{sec} = \frac{h \cdot (2ax_0 + ah + b)}{h} \]
+
+	Cancelamos então o $h$:
+
+	\[ m_{sec} = 2ax_0 + ah + b \]
+
+	Para achar o coeficiente angular da tangente, calculamos o limite de $m_{sec}$ quando $h$ tende a $0$.
+
+	\[ m_{tan} = \lim_{h \to 0} 2ax_0 + ah + b \]
+
+	Na prática, substituímos $h$ por $0$:
+
+	\begin{align*}
+		m_{tan} &= 2ax_0 + a0 + b \\
+		m_{tan} &= 2ax_0 + b \\
+	\end{align*}
+
+	Como esperado, $f'(x_0) = 2ax_0 + b$, o mesmo resultado obtido pelo outro método.
+
 \end{document}
