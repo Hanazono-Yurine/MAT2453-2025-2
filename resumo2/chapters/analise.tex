@@ -2,4 +2,124 @@
 \graphicspath{{\subfix{../images/}}}
 
 \begin{document}
+
+	\subsection{Forma da função de terceiro grau}
+
+	A equação de terceiro grau é da forma $a^3 + b^2 + c + d$, sendo $a$, $b$, $c$ e $d$ pertencentes ao 
+	conjunto dos números reais, com a diferente de $0$.
+
+	\subsubsection{Coeficiente a no gráfico da função de terceiro grau}
+
+	O coeficiente dominante $a$ está diretamente relacionado ao comportamento da curva do 
+	gráfico de uma função do terceiro grau, indicando o quadrante onde ela começa, e também, em
+	qual deles ela termina.
+
+	Em casos onde o coeficiente $a$ é maior que zero, temos um gráfico que começa no terceiro
+	quadrante e termina no primeiro.
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=.5\linewidth]{analise_casoal0}
+		\caption{Caso $a > 0$}
+		\label{fig:analise_casomenor0}
+	\end{figure}
+
+	Já para o caso onde $a$ é menor que zero, temos um gráfico que inicia no segundo quadrante 
+	e termina no quarto.
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=.5\linewidth]{analise_casoag0}
+		\caption{Caso $a < 0$}
+		\label{fig:analise_casomaior0}
+	\end{figure}
+
+	\subsubsection{Coeficiente b no gráfico da função de terceiro grau}
+
+	O coeficiente $b$ determina o quão para esquerda o para direita ficará no gráfico, assim,
+	quanto maior o $b$, mais deslocado à esquerda fica o gráfico, e quanto menor é o $b$, mais deslocado
+	à direita fica o gráfico. Já para o caso de $b = 0$, temos uma simetria do gráfico
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=1\linewidth]{analise_coeficiente}
+		\caption{Efeito do coeficiente $b$ na função cúbica $f(x) = ax^3 + bx^2 + cx + d$}
+		\label{fig:analise_coeficiente}
+	\end{figure}
+
+	\subsubsection{Coeficiente d no gráfico da função de terceiro grau}
+
+	O coeficiente ponto de intersecção entre o gráfico e o eixo y.
+
+
+
+	\subsubsection{Raízes da função de terceiro grau}
+
+	Funções do terceiro grau possuem três raízes, que podem ser reais ou complexas. Essas
+	raízes podem ser encontradas por fatoração.
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=.5\linewidth]{analise_raizes}
+		%\caption{}
+		\label{fig:analise_raizes}
+	\end{figure}
+
+	Para achar as raízes de uma equação do 3º grau por fatoração, procure por raízes
+	óbvias (ou testando valores de "$\frac{d}{a}$") para que possa dividir o polinômio e encontrar fatores, como
+	usando a fatoração por agrupamento, ou a fatoração de cubos, ou ainda dividindo por um fator
+	linear já conhecido da raiz. Se tiver uma raiz "$r$", poderá fatorar o polinômio da forma:
+	$(x - r) (ax^2+ bx + c) = 0$. O produto de todos os fatores, $a(x - x')(x - x'')(x - x''')$, mostra as raízes $(x', x'', x''')$
+	do polinômio.
+
+	\subsubsection{Passo a passo para fatoração}
+
+	\begin{itemize}
+		\item Testar raízes racionais (se houver)
+		\begin{itemize}
+			\item Se a equação tiver raízes racionais, elas serão do tipo $\frac{p}{q}$, onde p é um divisor do
+termo constante ($d$) e $q$ é um divisor do coeficiente líder ($a$)
+			\item Teste os divisores de $d$ e $q$ no polinômio. Se um valor $x = r$ anular a equação, então $r$ é uma raiz
+		\end{itemize}
+		\item Fatorar o polinômio
+		\begin{itemize}
+			\item Se você encontrou uma raiz $r$, então $(x - r)$ é um fator do polinômio
+			\item Divida o polinômio pelo fator $(x - r)$ para obter um polinômio do 2º grau. Você pode
+fazer isso por divisão polinomial ou pelo método de dispositivo de Briot-Ruffini
+		\end{itemize}
+		\item Resolver o polinômio do 2º grau
+		\begin{itemize}
+			\item Encontre as raízes da equação do 2º grau resultante usando a fórmula de Bhaskara
+		\end{itemize}
+		\item As raízes são:
+		\begin{itemize}
+			\item As raízes são o valor $r$ que você já encontrou e as duas raízes do polinômio de 2º grau
+		\end{itemize}
+	\end{itemize}
+
+	\textbf{Exemplo:}
+
+	Para a função:
+
+	\[ f(x) = x^3 - 6x^2 + 11x - 6 = 0 \]
+
+	Teste raízes: Testando $x = 1$, obtemos:
+
+	\begin{align*}
+		1^3 - 6(1)^2 + 11(1) - 6 &= 0 \\
+		1 - 6 + 11 - 6 &= 0 \\
+	\end{align*}
+
+	Logo, x=1 é uma raiz.
+
+	Fatore, $(x - 1)$ é um fator. Dividindo o polinômio por $(x - 1)$ (usando Briot-Ruffini ou divisão), obtemos $x^2 - 5x + 6$.
+
+	Resolva a equação quadrática, $x^2 - 5x + 6 = 0$. Usando Bhaskara, as raízes são $x = 2$ e $x = 3$.
+
+	Raízes, As raízes da função são $x = 1$, $x = 2$ e $x = 3$.
+
+	A forma fatorada da função seria:
+
+	\[ (x - 1)\cdot(x - 2)\cdot(x - 3) = 0 \]
+
 \end{document}
