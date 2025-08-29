@@ -3,48 +3,146 @@
 
 \begin{document}
 
-	Uma das formas de se encontrar as raizes de uma função é o processo de completar quadrados.
+	Uma das formas de se encontrar as raizes de uma equação é o processo de completar quadrados.
 
-	O grau de um equação está relacionado a quantidade de soluções de uma função, ou seja, uma função
-	de primeiro grau terá uma única solução, um função de segundo grau terá duas soluções e assim por diante.
+	O grau de uma equação está relacionado à quantidade de soluções que apresenta - uma equação
+	de primeiro grau terá uma única solução, uma de segundo grau terá duas soluções, e assim por diante.
 
-	Funções de segundo grau normalmente se encontram na seguinte forma:
+	Equações de segundo grau normalmente são representadas na seguinte forma:
 
 	\[ ax^2 + bx + c = 0 \]
 
-	Existe diferentes formas de se resolver uma equação utilizando o metdo de completar quadrados, tudo depende 
-	da própria equação.
+	Existem diferentes formas de se resolver uma equação de segundo grau. Uma delas é o método de 
+	completar quadrados. Esse método consiste na aplicação do conceito de trinômios quadrados
+	perfeitos em equações de segundo grau.
 
-	\subsection{É Trinômio Quadrado Perfeito}
+	\subsection{Trinômio Quadrado Perfeito}
 
-	[WIP] Esplicar oque é um trinômio perfeito
+	Para compreender plenamente esse conceito, é necessário primeiro antes definir o conceito de polinômios.
+
+	\subsubsection{Polinômios - conceitos básicos}
+
+	Polinômios são expressões matemáticas da forma:
+	\[a_1x^n + a_2x^{n-1} + ... + a_{n-1}x^1 + a_n \quad \textrm{t.q.} \quad a \in \mathbb{R}, n \in \mathbb{Z}\]
+
+	Note que cada termo \(a_nx^n\) é denominado monômio, que apresenta coeficiente \(a\) e grau \(n\).
+	Note que o grau do termo \(a_0\) é nulo, pois ele pode ser escrito na forma \(a_nx^0\).
+
+	Sendo assim, um trinômio é definido como um polinômio de três termos de graus distintos e não nulos. Um exemplo de
+	trinômio pode ser visto abaixo:
+	\[x^2 - 5x + 6\]
+
+	\subsubsection{Trinômio do Quadrado Perfeito - Definição}
+
+	Agora que sabemos o que é um trinômio, é necessário compreender o que o classifica como "do 
+	quadrado perfeito". Um trinômio do quadrado perfeito é um trinômio que pode ser escrito
+	como o quadrado de um binômio. Assim sendo, um trinômio quadrado perfeito pode ser descrito por:
+
+	\[(a + b)^2\]
+	ou;
+	\[(a - b)^2\]
+
+	Reescrevendo a primeira expressão como \((a + b)(a + b)\), e realizando uma distributiva, chegamos
+	à seguinte relação:
+
+	\[(a + b)^2 = a^2 + 2ab + b^2\]
+	
+
+	Visualizando esses termos geométricamente, nota-se que eles resultam em um quadrado,
+	de lado \(a + b\), como pode ser visto na figura abaixo. É a partir dessa característica
+	que um trinômio é classificado como quadrado perfeito.
+
+	\begin{figure}[H]
+		% figura do trinomio do quadrado perfeito
+		% por algum motivo essa legenda nao aparece
+		% não é um grande problema, mas se alguem conseguir resolver isso
+		% deixaria o texto um pouco mais bonito
+		\centering
+		\includegraphics[width=.5\linewidth]{trinomio.png}
+		\caption{Visualizacao geometrica do trinômio quadrado perfeito}
+		\label{fig:Figura 1.1}
+
+	\end{figure}
+
+	Perceba que a mesma manipulação também pode ser feita com a expressão \((a - b)^2\), que resultará em:
+
+	\[(a - b)^2 = a^2 - 2ab + b^2\]
 
 
-	Quando a equação é um trinômio quadrado perfeito, temos que primeiro tranforma-la em um produto notável
-	e depois resolve-lo.
+	\subsubsection{Resolvendo equações de segundo grau com trinômios quadrados perfeitos}
 
-	Pegando como exemplo a seguinte equação:
+	A partir da definição dada anteriormente de trinômio quadrado perfeito, pode-se resolver
+	algumas equações de segundo grau. Para tal, é necessário que a equação em questão possa ser escrita
+	na forma \((a + b)^2\), vejamos por exemplo, a equação:
+	
+	\[x^2 + 6x + 9 = 0 \quad \leftrightarrow\]
 
-	\[ x^2 + 6x + 9 = 0 \]
+	\[x^2 + 2\cdot x\cdot3 + 3^2 = 0 \quad \leftrightarrow\]
 
-	Temos os coeficientes $b = 6$ e $c = 9$.
+	\[(x + 3)^2 = 0 \quad \leftrightarrow\]
 
-	Assim podemos escrever a equação como
+	\[(x + 3)(x + 3) = 0\]
 
-	\[ x^2 + 6x + 9 = (x + 3)^2 = 0 \]
+	Essa última equação, equivalente à primeira apresentada, e apresenta solução trivial, uma vez que, para que
+	essa multiplicação seja igual a 0, \(x = -3\)
 
-	e já que um produto notável nada mais é que o produto de dois polinômios iguais, podemos transformar 
-	essa equação em
+	Mesmo que inicialmente essa equação pareça apresentar apenas uma solução,
+	por ela ser de segundo grau, ela apresenta duas soluções, que nesse caso são iguais. Assim, podemos dizer
+	que $-3$ é uma raiz com dupla multiplicade da equação \(x^2 + 6x + 9 = 0\).
 
-	\[ (x + 3)^2 = (x + 3)(x + 3) = 0 \]
+	\subsection{Outras expressões}
 
-	E para um produto ser igual a zero, um de seus fatores tem que ser igual a zero. Portanto no nosso exemplo
-	é necessário que $(x + 3) = 0$ ou que $(x + 3) = 0$.
+	Quando nos deparamos com equações de segundo grau que não podem ser expressas diretamente
+	na forma de um trinômio quadrado perfeito, utilizamos o método de completar quadrados.
+	Ele consiste em realizar operações algébricas nessa equação de modo a transformá-la em um
+	trinômio quadrado perfeito.
+	
+	\subsubsection{Completando quadrados}
+	
+	Para exemplificar, considere a equação:
 
-	Resolvendo, temos que para ambos $(x + 3) = 0$, $x$ será $-3$. 
+	\[x^2 + 6x - 7 = 0\]
 
-	\subsection{Não é Trinômio Quadrado Perfeito}
+	Perceba que ela não pode ser simplificada em um trinômio quadrado perfeito, então realizaremos
+	algumas operações algébricas para "completar" esse quadrado.
+
+	\[x^2 + 6x = 7\]
+
+	Como queremos que essa expressão seja da forma \(a^2 + 2\cdot ab + c^2\), podemos descobrir o 
+	valor de $b$ realizando o cálculo \(\frac{6x}{2\cdot x} = 3\). A partir dele, verificamos que $b = 3$,
+	e portanto devemos somar $b^2 = 9$ à nossa equação. Assim temos:
+
+	\[x^2 + 6x + 9 = 7 + 9\]
+
+	Fatorando o lado esquedo da equação, teremos:
+
+	\[(x + 3)^2 = 16 \quad \leftrightarrow\]
+
+	\[(x + 3)^2 = 4^2 \quad \leftrightarrow\]
+
+	\[x + 3 = \pm 4 \quad \leftrightarrow\]
+
+	\[x + 3 = 4 \quad \textrm{ou} \quad x + 3 = -4 \quad \leftrightarrow\]
+
+	\[x = 1 \quad \textrm{ou} \quad x = -7\]
+
+	E com isso, a equação foi solucionada por meio do método de
+	completar quadrados.
+
 
 	\subsection{Coeficiente "a" diferente de 1}
+
+	Para as equações cujos coeficientes $a$ sejam diferentes de 1, basta
+	realizar operações algébricas de modo a torná-lo 1. O jeito mais simples
+	é dividir todos os termos da equação por $a$.
+
+	\[ax^2 + bx + c = 0 \quad \leftrightarrow \]
+
+	\[\frac{ax^2}{a} + \frac{bx}{a} + \frac{c}{a} = 0 \quad \leftrightarrow \]
+
+	\[x^2 + \frac{bx}{a} + \frac{c}{a} = 0\]
+
+	Com essa última equação, o método de completar quadrados pode ser aplicado como visto
+	na seção anterior.
 
 \end{document}
