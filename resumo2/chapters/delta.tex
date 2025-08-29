@@ -2,4 +2,73 @@
 \graphicspath{{\subfix{../images/}}}
 
 \begin{document}
+
+	Com a equação quadrática:
+
+	\[ ax^2 + bx + c = 0, (a = 0) \]
+
+	É possível obter o $\Delta$, ou discriminate, que é o número que decide a natureza das raízes da equação quadrática.
+	O $\Delta$ vem da fórmula de bhaskara, obtida pelo método de completar quadrados 
+
+	\[ ax^2 + bx + c = 0 \]
+
+	\textit{(assumindo $a \neq 0$):}
+
+	\begin{align*}
+		x^2 + (\frac{b}{a})x + (\frac{c}{a}) &= 0 \\
+		x^2 + (\frac{b}{a})x &= \frac{-c}{a}
+	\end{align*}
+
+	Adicionando $(\frac{b}{2a})^2$ a ambos os lados da equação para transformar o lado esquerdo em um trinômio quadrado perfeito.
+
+	\begin{align*}
+		x^2 + (\frac{b}{a})x + (\frac{b}{2a})^2 &= -\frac{c}{a} + (\frac{b}{2a})^2 \\
+		x^2 + (\frac{b}{a})x + \frac{b^2}{4a^2} &= -\frac{c}{a} + \frac{b^2}{4a^2} \\
+		(x + \frac{b}{2a})^2 &= \frac{b^2}{4a^2} - \frac{c}{a} \\
+		(x + \frac{b}{2a})^2 &= \frac{(b^2 - 4ac)}{4a^2} \\
+		x + \frac{b}{2a} &= \pm\frac{\surd(b^2 - 4ac)}{\surd(4a^2)} \\
+		x + \frac{b}{2a} &= \pm\frac{\surd(b^2 - 4ac)}{2a} \\
+		x &= \frac{-b}{2a} \pm \frac{\surd(b^2 - 4ac)}{2a} \\
+		x &= \frac{-b \pm \surd(b^2 - 4ac)}{2a} \\
+		\Delta &= b^2 - 4ac \\
+	\end{align*}
+
+	\subsection{Interpretações do Delta}
+
+	\subsubsection{Natureza e quantidade de raízes reais}
+	
+	\begin{itemize}
+		\item $\Delta \geq 0 \to$ duas raízes reais \textbf{distintas}.
+		\item $\Delta = 0 \rightarrow$ \textbf{uma} raiz real \textbf{dupla} (as duas coincidem).
+		\item $\Delta \leq 0 \rightarrow$ \textbf{nenhuma} raiz real (raízes complexas conjugadas).
+	\end{itemize}
+
+	Equivalentemente, no gráfico de :
+	
+	\begin{itemize}
+		\item $\Delta \geq 0 \rightarrow$ a parábola corta o eixo em \textbf{dois} pontos.
+		\item $\Delta = 0 \rightarrow$ a parábola \textbf{toca} o eixo no \textbf{vértice}.
+		\item $\Delta \leq 0 \rightarrow$ a parábola \textbf{não} intercepta o eixo .
+	\end{itemize}
+
+	Se conhecemos as raízes, conseguimos fatorar o polinômio.
+
+	\subsubsection{Caso 1: $\Delta \geq 0$ (duas raízes reais)}
+
+	Se  são as raízes:
+
+	\[ ax^2 + bx + c = a(x - x_1)(x - x_2) \]
+
+	\subsubsection{Caso 2: $\Delta = 0$ (raiz dupla)}
+
+	Se a única raiz é :
+
+	\[ ax^2 + bx + c = a(x - x_0)^2 \]
+
+	\subsubsection{Caso 3: $\Delta \leq 0$ (raízes complexas)}
+
+	Não dá para fatorar em $R$ . Mas em $C$ :
+
+	\[ ax^2 + bx + c = a(x - z_1)(x - z_2) \]
+
 \end{document}
