@@ -1,0 +1,168 @@
+\documentclass[../resumo.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+
+\begin{document}
+
+	\subsection{Formulação Matemática}
+
+	O perfil da lombada será modelado por uma função de terceiro grau, que permite a flexibilidade
+	necessária para controlar a inclinação nas extremidades. A forma geral de uma função de terceiro
+	grau é $f(x)= ax^3+ bx^2 + cx + d$.
+
+	Para garantir que a lombada comece e termine no nível da pista, a inclinação inicial e final deve
+	ser zero. Isso evita choques abruptos. O modelo será simétrico em relação ao centro do perfil.
+	Seja $L$ o comprimento total da lombada e $H$ a sua altura máxima. O eixo $x$ representa a distância
+	horizontal e o eixo $y$ a altura vertical.
+
+	Vamos definir o domínio da função no intervalo $[0,\frac{L}{2}]$ para a primeira metade da lombada, com
+	o ponto $(0,0)$ sendo o início da subida. O ponto central será em $(\frac{L}{2},H)$. Devido à simetria,
+	a segunda metade, de $[\frac{L}{2},L]$, será uma reflexão da primeira.
+
+	Para a primeira metade da lombada, a função será $y=f(x)= ax^3 + bx^2 + cx + d$.
+
+	Precisamos satisfazer as seguintes condições de contorno:
+
+	\begin{enumerate}
+		\item \textbf{Ponto inicial:} A lombada começa no nível do asfalto.
+			\begin{itemize}
+				\item $f(0)=0 \rightarrow a(0)^3+b(0)^2 + c(0) + d = 0 \rightarrow d = 0$
+			\end{itemize}
+		\item \textbf{Inclinação inicial:} A inclinação deve ser zero para garantir uma transição suave.
+			\begin{itemize}
+				\item $f'(x) = 3ax^2 + 2bx + c$
+				\item $f'(0) = 0 \rightarrow 3a(0)^2 + 2b(0) + c = 0 \rightarrow c = 0$
+				\item Como $d = 0$ e $c = 0$, a função se simplifica para
+					\[ y = f(x) = ax^3 + bx^2 \]
+			\end{itemize}
+		\item \textbf{Ponto central:} A lombada atinge sua altura máxima no centro.
+			\begin{itemize}
+				\item $f(\frac{L}{2}) = H \rightarrow a(\frac{L}{2})^3 + b(\frac{L}{2})^2 = H$
+				\item Então temos que:
+					\begin{align} \label{eq:1}
+						a(\frac{L^3}{8}) + b(\frac{L^2}{4}) = H
+					\end{align}
+			\end{itemize}
+		\item \textbf{Inclinação central:} A inclinação no ponto de altura máxima deve ser zero para
+				garantir um topo plano ou suavemente arredondado, evitando um pico.
+			\begin{itemize}
+				\item $f'(\frac{L}{2}) = 0 \rightarrow 3a(\frac{L}{2})^2 + 2b(\frac{L}{2}) = 0$
+				\item $3a(\frac{L^2}{4}) + bL = 0$
+				\item Então temos que:
+					\begin{align} \label{eq:2}
+						bL = -3a(\frac{L^2}{4}) \rightarrow b = -3a(\frac{L}{4})
+					\end{align}
+			\end{itemize}
+	\end{enumerate}
+
+	Agora, substituímos a Equação \ref{eq:2} na Equação \ref{eq:1} para encontrar o valor de a em termos de $L$ e $H$:
+
+	\begin{align*}
+		a(\frac{L^3}{8}) + (-\frac{3aL}{4})(\frac{L^2}{4}) &=H \\
+		a(\frac{L^3}{8}) - \frac{3aL^3}{16} &= H
+	\end{align*}
+
+	Multiplicando por $16$ para eliminar as frações:
+
+	\begin{align*}
+		2aL^3 - 3aL^3 &= 16H \\
+		-aL^3 &= 16H \\
+		a &= \frac{-16H}{L^3}
+	\end{align*}
+
+	Agora, substituímos a de volta na Equação \ref{eq:2} para encontrar $b$:
+
+	\begin{align*}
+		b &= -3(\frac{-16H}{L^3})(\frac{L}{4}) \\
+		b &= (\frac{48H}{L^3})(\frac{L}{4}) \\
+		b &= \frac{12H}{L^2}
+	\end{align*}
+
+	Então, a função que descreve a primeira metade da lombada (de $x = 0$ a $x = \frac{L}{2}$) é:
+
+	\[ y = f(x) = (\frac{-16H}{L^3})x^3 + (\frac{12H}{L^2})x^2 \]
+
+	A função pode ser fatorada para uma forma mais compacta:
+
+	\[ y = (\frac{4H}{L^2})x^2\cdot(3-\frac{4x}{L}) \]
+
+	A inclinação da tangente em qualquer ponto $x$ na primeira metade é dada pela primeira derivada:
+
+	\begin{align*}
+		f'(x) &= 3(\frac{-16H}{L^3})x^2 + 2(\frac{12H}{L^2})x \\
+		f'(x) &= (\frac{-48H}{L^3})x^2 + (\frac{24H}{L^2})x \\
+		f'(x) &= (\frac{24H}{L^2})x\cdot(1-\frac{2x}{L})
+	\end{align*}
+
+	A aceleração vertical sentida pelo veículo é proporcional à segunda derivada da função do perfil
+	em relação ao tempo. Vamos assumir uma velocidade horizontal constante $vx$.
+
+	\begin{align*}
+		\frac{dx}{dt} &= vx \\
+		\frac{dy}{dt} &= (\frac{dy}{dx})(\frac{dx}{dt}) = f'(x)vx \\
+		\frac{d^2y}{dt^2} &= \frac{d}{dt(f'(x)vx)} = vx(\frac{d}{dx(f'(x))})\cdot(\frac{dx}{dt}) = f''(x)vx^2
+	\end{align*}
+
+	A aceleração vertical $(ay)$ é, portanto:
+
+	\begin{align*}
+		ay &= f''(x)vx^2 \\
+		f''(x) &= \frac{d}{dx((\frac{-48H}{L^3})x^2 + (\frac{24H}{L^2})x)} \\
+		f''(x) &= (\frac{-96H}{L^3})x + (\frac{24H}{L^2})
+	\end{align*}
+
+	A aceleração vertical máxima para uma velocidade $vx$ ocorrerá nos pontos de maior concavidade,
+	que são os pontos de inflexão da curva. A segunda derivada, $f''(x)$, descreve a curvatura.
+	O ponto onde a aceleração é máxima é onde a magnitude de $f''(x)$ é máxima.
+	
+	A magnitude da aceleração é:
+
+	\[ |ay| = |(\frac{-96H}{L^3})x + (\frac{24H}{L^2})|vx^2 \]
+
+	Esta é uma função linear de $x$. Sua magnitude máxima ocorre nos extremos do intervalo de análise,
+	ou seja, em $x = 0$ e $x = \frac{L}{2}$.
+
+	Em $x = 0$:
+
+	\[ |ay| = |(\frac{24H}{L^2})|vx^2 = (\frac{24H}{L^2})vx^2 \]
+
+	Em $x = \frac{L}{2}$:
+
+	\begin{align*}
+		|ay| &= |(\frac{-96H}{L^3})(\frac{L}{2})+(\frac{24H}{L^2})|vx^2 \\
+		|ay| &= |(\frac{-48H}{L^2})+(\frac{24H}{L^2})|vx^2 \\
+		|ay| &= |(\frac{-24H}{L^2})|vx^2 \\
+		|ay| &= (\frac{24H}{L^2})vx^2
+	\end{align*}
+
+	A aceleração máxima é a mesma no início e no centro da lombada, e é diretamente proporcional
+	ao quadrado da velocidade. Isso é a chave para o modelo: a aceleração (e o desconforto) aumenta
+	drasticamente com o aumento da velocidade.
+
+	\subsection{Otimização do Conforto e Penalização da Velocidade}
+
+	A aceleração vertical máxima para uma travessia confortável é um valor limiar. Seja $ay$, $max_{ideal}$
+	a aceleração vertical máxima que corresponde a um nível aceitável de conforto. A velocidade de projeto
+	($v_{ideal}$) é a velocidade máxima permitida na lombada.
+
+	A relação é:
+
+	\[ ay, max_{ideal} = (\frac{24H}{L^2})v_{ideal}^2 \]
+
+	Para uma determinada lombada com dimensões $H$ e $L$, a velocidade ideal é:
+
+	\[ v_{ideal} = ay, max_{ideal}\cdot(\frac{L^2}{24H}) \]
+
+	Para um veículo que trafega a uma velocidade $v_{excesso} > v_{ideal}$, a aceleração vertical será:
+
+	\[ ay, excesso = (\frac{24H}{L^2})\cdot v_{excesso}^2 \]
+
+	A razão entre a aceleração do excesso e a ideal é:
+
+	\[ ay, \frac{excesso}{ay}, max_{ideal} = \frac{v_{excesso}^2}{v_{ideal}^2} \]
+
+	Isso mostra que a aceleração (e o desconforto) aumenta com o quadrado da velocidade, penalizando
+	significativamente aqueles que excedem a velocidade de projeto. Por exemplo, se a velocidade é dobrada
+	$(v_{excesso} = 2v_{ideal})$, a aceleração será quadruplicada $(ay,excesso = 4ay, max_{ideal})$,
+	garantindo uma punição notável.
+
+\end{document}
