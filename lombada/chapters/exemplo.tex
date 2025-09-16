@@ -1,0 +1,75 @@
+\documentclass[../resumo.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+
+\begin{document}
+
+Vamos aplicar as fórmulas deduzidas para projetar uma lombada.
+
+\subsubsection{Parâmetros de Projeto}
+
+\begin{itemize}
+	\item \textbf{Altura máxima (H):} $8 cm (0,08 m)$
+	\item \textbf{Comprimento total (L):} $3 m$
+	\item \textbf{Aceleração vertical máxima aceitável $(ay,max_{ideal})$:} $0,5 \mathrm{g}$, onde $\mathrm{g}$ é a aceleração
+		da gravidade ($~9,8 \mathrm{m/s^2}$). Assim, $ay,max_{ideal} = 0,5\cdot9,8 = 4,9 \mathrm{m/s^2}$.
+\end{itemize}
+
+\subsubsection{Cálculos}
+
+\begin{enumerate}
+	\item Encontrar a função do perfil da lombada:
+
+		\[ y = (\frac{-16H}{L^3})x^3 + (\frac{12H}{L^2})x^2 \]
+
+		Substituindo os valores:
+
+		\begin{align*}
+			a &= \frac{-16\cdot0.08}{3^3} = -1.28/27 \approx -0.0474 \\
+			b &= \frac{12\cdot0.08}{3^2} = 0.96/9 \approx 0.1067
+		\end{align*}
+		A função do perfil para a primeira metade (de $x = 0$ a $x = 1.5 \mathrm{m}$) é:
+
+		\[ y(x) = -0.0474x^3 + 0.1067x^2 \]
+
+	\item Calcular a velocidade ideal de travessia:
+
+		Usamos a fórmula da velocidade ideal:
+
+		\begin{align*}
+			v_{ideal} &= ay,max_{ideal}\cdot(\frac{L^2}{24H}) \\
+			v_{ideal} &= 4.9\cdot(\frac{32}{(24\cdot0.08)}) \\
+			v_{ideal} &= 4.9\cdot(\frac{9}{1.92}) \\
+			v_{ideal} &= 4.9\cdot4.6875 \\
+			v_{ideal} &= 22.96875 \approx 4.79 \mathrm{m/s}
+		\end{align*}
+
+		Convertendo para $\mathrm{km/h}$:
+
+		\[ v_{ideal} = 4.79\cdot3.6 \approx 17.244 \mathrm{km/h} \]
+
+		A velocidade de projeto para esta lombada é aproximadamente $17 \mathrm{km/h}$. Para esta velocidade, a
+		aceleração vertical máxima sentida pelo veículo será de $4,9 \mathrm{m/s^2}$, um valor considerado confortável.
+
+	\item Análise de penalidade para excesso de velocidade:
+
+		Se um motorista exceder a velocidade e passar a $30 \mathrm{km/h}$, ou seja:
+
+		\[ v_{excesso} = 30 \mathrm{km/h} \approx 8.33 \mathrm{m/s} \]
+
+		A razão de velocidade é:
+
+		\[ \frac{8.33}{4.79} \approx 1.74 \]
+
+		A razão de aceleração será o quadrado da razão de velocidade:
+
+		\[ 1.74^2 \approx 3.03 \]
+
+		A aceleração vertical sentida será:
+
+		\[ ay,excesso = 3.03 \cdot ay, max_{ideal} = 3.03 \cdot 4.9 = 14.847 \mathrm{m/s^2} \]
+
+		$14.847 \mathrm{m/s^2}$ é aproximadamente $1.5 \mathrm{g}$. Esta aceleração é significativamente
+		alta e desconfortável, servindo como uma punição efetiva para a não conformidade com o limite de velocidade.
+\end{enumerate}
+
+\end{document}
