@@ -1,0 +1,77 @@
+\documentclass[../resumo.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+
+\begin{document}
+
+	\subsection{1° Quadrante, $x > 0$, $y > 0$, $x \leq 0$}
+
+	\begin{align*}
+		y &= \sqrt{\frac{1}{2}(a\sqrt{8x^2 + a^2} - (2x^2 + a^2))} \\
+		y &= \sqrt{z} \\
+		z &\coloneq \frac{1}{2} (a\sqrt{8x^2 + a^2} - (2x^2 + a^2))
+	\end{align*}
+
+	\begin{align*}
+		z &= \frac{1}{2} (a\sqrt{8x^2 + a^2} - (2x^2 + a^2)) \\
+		z &= \frac{1}{2} (a\sqrt{w} - (2x^2+a^2)) \\
+		w &\coloneq 8x^2 + a^2
+	\end{align*}
+
+	\begin{align*}
+		y' &= \frac{z'}{2\sqrt{z}} \\
+			 &= \frac{1}{2} \cdot z^{\frac{1}{2}} \cdot z' \cdot (RC) \\
+		z' &\coloneq \frac{1}{2} (a \frac{1}{2} \cdot w^{-\frac{1}{2}} \cdot w' - 4x)
+	\end{align*}
+
+	\begin{align*}
+		w' &= 16x \\
+		y' &= \frac{1}{2} \cdot \frac{1}{2} \cdot \frac{\left(a \cdot \frac{1}{2} \cdot \frac{16x}{\sqrt{8x^2 + a^2}} - 4x\right)}{\sqrt{z}} \\
+			 &= \frac{1}{2} \cdot \frac{1}{2} \cdot \frac{4x \left(\dfrac{2a - \sqrt{8x^2 + a^2}}{\sqrt{8x^2 + a^2}}\right)}{\sqrt{z}} \\
+			 &= \frac{x}{\sqrt{z}} \cdot \frac{\left( 2a - \sqrt{8x^2 + a^2} \right)}{\sqrt{\sqrt{8x^2 + a^2}}} >=< 0 \\
+			 &\longleftrightarrow 2a - \sqrt{8x^2 + a^2} >=< 0 \\
+			 &\longleftrightarrow 2a >=< \sqrt{8x^2 + a^2} \\
+			 &\longleftrightarrow 4a^2 >=< 8x^2 + a^2 \\
+			 &\longleftrightarrow 3a^2 >=< 8x^2 \\
+			 &\longleftrightarrow \frac{3a^2}{8} >=< x^2 \\
+			 &\longleftrightarrow \frac{\sqrt{3}}{2 \sqrt{2}} \cdot a >=< x
+	\end{align*}
+
+	\newpage
+
+	\[x_{max} = \frac{\sqrt{3}}{2 \sqrt{2}} \cdot a\]
+
+	\begin{align*}
+		\begin{cases}
+			3a^2 = 8x^2 \longleftrightarrow 8x^2 + a^2 = 4a^2 \rightarrow \sqrt{8x^2 + a^2} = 2a \rightarrow a \sqrt{8x^2 + a^2} = 2a^2 \\
+			\frac{3a^2}{4} = 2x^2 \longleftrightarrow 2x^2 + a^2 = \frac{3}{4} a^2 + a^2 = \frac{7}{4} a^2
+		\end{cases}
+	\end{align*}
+
+	\begin{align*}
+		a \sqrt{8x^2 + a^2} - (2x^2 + a^2) &= 2a^2 - \frac{7}{4} a^2 \\
+		&= \frac{a^2}{4}
+	\end{align*}
+
+	\[ y_{max} = \sqrt{\frac{1}{2} \cdot \frac{a^2}{4}} = \frac{a}{2 \sqrt{2}} \]
+
+	\subsection{Pontos de Máximo}
+
+	1° quadrante
+
+	\[ \left( \frac{\sqrt{3}}{2\sqrt{2}} \cdot a, \frac{a}{2 \sqrt{2}} \right) \]
+
+	2° quadrante
+
+	\[ \left( \frac{-\sqrt{3}}{2\sqrt{2}} \cdot a, \frac{a}{2 \sqrt{2}} \right) \]
+
+	\subsection{Pontos de Mínimo}
+
+	3° quadrante
+
+	\[ \left( \frac{-\sqrt{3}}{2\sqrt{2}} \cdot a, \frac{-a}{2 \sqrt{2}} \right) \]
+
+	4° quadrante
+
+	\[ \left( \frac{\sqrt{3}}{2\sqrt{2}} \cdot a, \frac{-a}{2 \sqrt{2}} \right) \]
+
+\end{document}
