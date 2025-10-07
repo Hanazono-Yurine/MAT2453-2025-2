@@ -1,0 +1,122 @@
+\documentclass[../resumo.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+
+\begin{document}
+
+	\subsection{Enunciado}
+
+	Considerando a função $\varphi(x) = x - 2x^3$, $x \in \mathbb{R} (\mathbb{R} \rightarrow \mathbb{R})$
+	determinar (e argumentar, justificando) para quais $y \in \mathbb{R}$ a função $\varphi(x) = y$ (na
+	incógnita $x$) tem 1 solução, 2 soluções, 3 soluções.
+
+	\subsection{Estudo da função $\varphi(x) = x - 2x^3$}
+	
+	A análise é feita através do estudo da derivada primeira e segunda, da identificação dos
+	extremos locais e do comportamento global da função cúbica.
+
+	\subsubsection{Definição da função}
+
+	Seja $\varphi(x) = x - 2x^3$, com $\varphi: \mathbb{R} \rightarrow \mathbb{R}$.
+
+	\subsubsection{Derivada primeira e pontos críticos}
+
+	A derivada primeira é:
+
+	\[ \varphi'(x) = \frac{d}{dx}(x - 2x^3) = 1 - 6x^2 \]
+	
+	Para encontrar os pontos críticos, impõe-se $\varphi'(x) = 0$:
+	
+	\[ 1 - 6x^2 = 0 \rightarrow x = \frac{\pm 1}{\sqrt{6}} \]
+
+	\subsubsection{Derivada segunda e classificação dos extremos}
+
+	A derivada segunda é:
+
+	\[ \varphi''(x) = \frac{d}{dx}(1 - 6x^2) = -12x \]
+
+	Cálculo da segunda derivada nos pontos críticos:
+
+	\begin{itemize}
+		\item Ponto de máximo local: $\varphi''\frac{1}{\sqrt{6}} = -12\frac{1}{\sqrt{6}} = -2\sqrt{6}$
+		\item Ponto de mínimo local: $\varphi''\frac{-1}{\sqrt{6}} = -12\frac{-1}{\sqrt{6}} = 2\sqrt{6}$
+	\end{itemize}
+
+	\subsubsection{Cálculo dos valores máximos e mínimos locais}
+
+	\begin{align*}
+		\varphi(\frac{1}{\sqrt{6}}) &= \frac{1}{\sqrt{6}} - 2(\frac{1}{\sqrt{6}})^3 \\
+																&= \frac{1}{\sqrt{6}} - \frac{2}{6\sqrt{6}} \\
+																&= \frac{2}{3}\frac{1}{\sqrt{6}} \\
+																&= \frac{2}{(3\sqrt{6})} \\
+																&= \frac{\sqrt{6}}{9}
+	\end{align*}
+
+	\begin{align*}
+		\varphi(\frac{-1}{\sqrt{6}}) &= \frac{-1}{\sqrt{6}} - 2(\frac{-1}{\sqrt{6}})^3 \\
+																 &= \frac{-1}{\sqrt{6}} + \frac{2}{6\sqrt{6}} \\
+																 &= \frac{-2}{3}\frac{1}{\sqrt{6}} \\
+																 &= \frac{-\sqrt{6}}{9}
+	\end{align*}
+
+	Logo, o máximo local é $y_{max} = \frac{\sqrt{6}}{9}$ e o mínimo local é $y_{min} = \frac{-\sqrt{6}}{9}$.
+
+	\subsubsection{Comportamento da função nos extremos do domínio}
+
+	Para $x \rightarrow +\infty$, o termo dominante é $-2x^3$, logo $\varphi(x) \rightarrow -\infty$.
+	Para $x \rightarrow -\infty$, $\varphi(x) \rightarrow +\infty$.
+
+	Como $\varphi(x)$ é um polinômio de grau ímpar e contínuo, o conjunto imagem é $\mathbb{R}$, garantindo
+	pelo menos uma solução real para qualquer $y \in \mathbb{R}$.
+
+	\subsubsection{Determinação do número de soluções para diferentes valores de y}
+
+	Se $y > \frac{\sqrt{6}}{9} \rightarrow 1$ solução real
+	(reta horizontal acima do máximo local intercepta o gráfico uma única vez).
+
+	Se $y = \frac{\sqrt{6}}{9} \rightarrow 2$ soluções reais
+	(uma é o ponto de tangência $x = \frac{1}{\sqrt{6}}$, a outra é uma interseção simples).
+
+	Se $\frac{-\sqrt{6}}{9} < y < \sqrt{6}{9} \rightarrow 3$ soluções reais
+	(reta corta o gráfico nas três regiões de monotonicidade).
+
+	Se $y = \frac{-\sqrt{6}}{9} \rightarrow 2$ soluções reais
+	(uma é o ponto de tangência $x = \frac{-1}{\sqrt{6}}$, a outra é uma interseção simples).
+
+	Se $y < \frac{-\sqrt{6}}{9} \rightarrow 1$ solução real
+	(reta abaixo do mínimo local intercepta o gráfico uma única vez).
+
+	\subsubsection{Multiplicidade das raízes}
+
+	Para $y = \frac{\pm \sqrt{6}}{9}$, a raiz correspondente ao ponto crítico é de multiplicidade 2 (tangência).
+	Nos demais casos, todas as raízes são simples.
+
+	\subsubsection{Conclusão}
+
+	A equação $x - 2x^3 = y$ apresenta:
+	\begin{enumerate}
+		\item 1 solução real se $y > \frac{\sqrt{6}}{9}$ ou $y < \frac{-\sqrt{6}}{9}$
+		\item 2 soluções reais se $y = \frac{\pm \sqrt{6}}{9}$
+		\item 3 soluções reais se $\frac{-\sqrt{6}}{9} < y < \frac{\sqrt{6}}{9}$
+	\end{enumerate}
+
+	\subsubsection{Gráficos}
+
+	\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.5\textwidth]{images/ex5-original}
+			\caption{Gráfico de $\varphi(x) = x - 2x^3$}
+	\end{figure}
+
+	\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.5\textwidth]{images/ex5-primeira}
+			\caption{Gráfico da derivada primeira de $\varphi(x) = x - 2x^3$}
+	\end{figure}
+
+	\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.5\textwidth]{images/ex5-segunda}
+			\caption{Gráfico da derivada segunda de $\varphi(x) = x - 2x^3$}
+	\end{figure}
+
+\end{document}

@@ -1,0 +1,178 @@
+\documentclass[../resumo.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+
+\begin{document}
+
+	\subsection{Enunciado}
+
+	Para qualquer $\mu \in \mathbb{R}$, $\mu > 0$, e qualquer $a \in \mathbb{R}$, $a > 1$, verifique que
+
+	\[ \lim_{x \to +\infty} \frac{x^\mu}{a^x} = 0 \]
+
+	Esboçar o gráfico de $J: \mathbb{R}_+ \rightarrow \mathbb{R}$, $J(x): \frac{x^\mu}{a^x}$, para $x \in \mathbb{R}_+$
+	com seus pontos notáveis (máx/min, pontos de inflexão)
+
+	Para a analise do limite
+
+	\begin{align} \label{limit:1}
+		\lim_{x\to+\infty} \dfrac{x^\mu}{a^x}
+	\end{align}
+
+	iremos dividir em duas partes
+
+	\subsection{Verificação do Limite}
+
+	O problema fala que para qualquer $\mu \in \mathbb{R}$ com $\mu > 0$ e qualquer $a  \in \mathbb{R}$ com $a > 1$
+	o limite (\ref{limit:1}) é igual a zero.
+
+	Esse limite é uma "disputa" para ver qual função é maior, uma função de potência ($x^\mu$) ou uma função
+	exponencial ($a^x$). Intuitivamente já da para saber que a função exponencial é maior, portanto fazendo
+	com que a fração fique 0.
+
+	Para provar esse nossa teoria, iremos usar a Regra de L'Hôpital, já que temos uma indeterminada do
+	tipo $\dfrac{\infty}{\infty}$.
+
+	\subsubsection{Usando L'Hôpital}
+
+	Derivando o numerador e denominador em relação a $x$, temos:
+
+	\begin{itemize}
+		\item Derivada do numerador: $\mu x^{\mu-1}$
+		\item Derivada do denominador: $a^x \cdot \ln a$
+	\end{itemize}
+
+	Aplicando a regra, temos 
+
+	\begin{align*}
+		\lim_{x \to \infty} \dfrac{x^\mu}{a^x} = \lim_{x \to \infty} \dfrac{\mu x^{x-1}}{a^x \cdot \ln a}
+	\end{align*}
+
+	Se $\mu-1 > 0$ continuamos tendo uma indeterminada do tipo $\dfrac{\infty}{\infty}$, então podemos
+	aplicar L'Hôpital repetidamente.
+	
+	Seja $k$ o menor inteiro tal que $k \geq u$. Após aplicarmos L'Hôpital três vezes, temos:
+
+	\begin{itemize}
+		\item Numerador, o a potência de $x$ será $x - k$, que é menor ou igual a zero. Já a derivada será 
+			da forma $C \cdot x^{\mu-k}$, sendo que $C = \mu(\mu-1)\cdots(\mu-k+1)$
+		\item O denominador será $a^x (\ln a)^x$
+	\end{itemize}
+
+	Então o limite vira
+
+	\begin{align*}
+		\lim_{x \to \infty} \dfrac{\mu(\mu-1)\cdots(\mu-k+1)x^{\mu-k}}{a^x (\ln a)^x}
+	\end{align*}
+
+	Como $\mu - k \leq 0$, o termo $x^{\mu-k}$ no numerador tende a $1$ caso $\mu=k$, ou $0$ caso $\mu < k$.
+
+	Porém o denominador ($a^x (\ln a)^x$) claramente tende ao infinito, já que $a > 1$.
+
+	E uma constante finita dividida por infinito dá $0$, provando que o limite (\ref{limit:1}) é $0$.
+
+	\subsection{Esboço e Analise do Gráfico}
+
+	\subsubsection{Derivada Primeira (Pontos Críticos e Monotonicidade)}
+
+	Usamos a regra do quociente para encontrar $f'(x)$
+
+	\begin{align*}
+		f'(x) &= \frac{(\mu x^{\mu-1}) \cdot a^{x} - x^{\mu} \cdot (a^x \cdot \ln a)}{(a^x)^2} \\
+		f'(x) &= \frac{a^x (\mu x^{\mu-1} - x^\mu \ln a)}{a^{2x}} \\
+		f'(x) &= \frac{x^{\mu-1}(\mu-x \ln a)}{a^x}
+	\end{align*}
+
+	Para encontrarmos os pontos críticos, é só igualar a derivada ($f'(x)$) a zero.
+
+	Como $x > 0$ , os	termos $x^{\mu-1}$ e $a^x$ são sempre positivos.
+	Portanto, a derivada é zero somente quando:
+
+	\[ \mu-x \cdot ln(a) = 0 \Rightarrow x \cdot \ln a = \mu \Rightarrow x = \frac{u}{\ln a} \]
+
+	Este é o nosso único ponto crítico.
+
+	\begin{itemize}
+		\item Se $0 < x < \dfrac{\mu}{\ln a}$, o termo ($\mu-x \cdot \ln a$) é positivo, então $f'(x) > 0$. 
+			A função é \textbf{crescente}
+		\item Se $x > \dfrac{\mu}{\ln a}$, o termo ($\mu-x \cdot \ln a$) é negativo, então $f'(x) < 0$. 
+			A função é \textbf{decrescente}
+	\end{itemize}
+
+	Portanto, a função atinge um ponto de máximo local (e global) em $x_{max} = \dfrac{\mu}{\ln a}$
+
+	\subsubsection{Derivada Segunda (Pontos de Inflexão e Concavidade)}
+
+	Derivamos novamente usando a regra do quociente. Para simplificar, vamos reescrever
+	$f'(x) = \dfrac{\mu x^{\mu-1}-x^\mu \cdot \ln a}{a^x}$.
+	\[ f''(x) = \frac{[\mu(\mu-1)x^{\mu-2} - \mu x^{\mu-1}\ln a]a^x - [\mu x^{\mu-1} - x^\mu \ln a](a^x \ln
+	a)}{(a^x)^2} \]
+
+	Cancelando e agrupando os termos:
+
+	\[ f''(x) = \frac{\mu(\mu-1)x^{\mu-2} - 2\mu x^{\mu-1}\ln a + x^\mu(\ln a)^2}{a^x} \]
+
+	Podemos fatorar no numerador:
+
+	\[ f''(x) = \frac{x^{u-2}[\mu (\mu - 1) - 2 \mu x \ln a + (x \ln a)^2]}{a^x} \]
+
+	Os pontos de inflexão ocorrem quando $f''(x) = 0$. Como $x^{u-2}$ e $a^x$ são positivos, precisamos que o
+	termo quadrático seja zero:
+
+	\[ (x \ln a)^2 - 2 \mu (x \ln a) + \mu(\mu - 1) = 0 \]
+
+	Esta é uma equação quadrática na variável $z = x \ln a$. Usando a fórmula de Bhaskara para $z^2 - 2 \mu z + \mu(\mu - 1) = 0$:
+	
+	\begin{align*}
+		z &= \frac{-(-2\mu) \pm \sqrt{(-2\mu)^2 - 4(1)(\mu^2-\mu)}}{2}  \\
+		  &= \frac{2\mu \pm \sqrt{4\mu^2 - 4\mu^2 + 4\mu}}{2} \\
+			&= \frac{2\mu \pm 2\sqrt{\mu}}{2} = \mu \pm \sqrt{\mu}
+	\end{align*}
+
+	Substituindo $z$ de volta por $x \ln a$:
+
+	\[ x \ln a = \mu \pm \]
+	\[ \mu \Rightarrow x = \frac{\mu \pm \mu}{\ln a} \]
+
+	Temos dois pontos de inflexão:
+
+	\begin{itemize}
+		\item $x_1 = \dfrac{u- u}{\ln a}$
+		\item $x_2 = \dfrac{u+ u}{\ln a}$
+	\end{itemize}
+
+	Nota: Se $0 < \mu \leq 1$, então $\mu- \mu \leq 0$, e como o domínio é $x > 0$, teremos apenas um 
+	ponto de inflexão ($x_2$) no domínio.
+
+	A expressão quadrática em $f''(x)$ é uma parábola com concavidade para cima (em relação a $x$).
+	Portanto:
+
+	\begin{itemize}
+		\item A função é côncava para cima ($f''(x) > 0$) quando $x$ está fora das raízes: $(0,x_1)$ e $(x_2,\infty)$.
+		\item A função é côncava para baixo ($f''(x) < 0$) quando $x$ está entre as raízes: $(x_1,x_2)$.
+	\end{itemize}
+
+	\subsubsection{Resumo e Esboço do Gráfico}
+
+	\begin{itemize}
+		\item Comportamento nos extremos do domínio:
+			\begin{itemize}
+				\item $\lim_{x\to 0^+} f(x) = \dfrac{0^\mu}{a^0} = \dfrac{0}{1} = 0$. O gráfico começa na origem $(0,0)$.
+				\item $\lim_{x\to \infty} f(x) = 0$. O eixo x é uma assíntota horizontal.
+			\end{itemize}
+		\item Ponto de Máxima: $x = \dfrac{\mu}{\ln a}$
+		\item Ponto de Inflexão: $x = \dfrac{\mu \pm \mu}{\ln a}$ (assumindo $\mu > 1$)
+	\end{itemize}
+
+	\subsubsection{O gráfico se comporta da seguinte maneira (para $\mu > 1$)}
+
+	\begin{enumerate}
+		\item Começa em (0,0).
+		\item Cresce com concavidade para cima.
+		\item No ponto $x_1 = \dfrac{\mu \pm \mu}{\ln a}$, a concavidade muda para baixo.
+		\item Continua crescendo até atingir seu valor máximo em $x_{max} = \dfrac{\mu}{\ln a}$.
+		\item Começa a decrescer, ainda com concavidade para baixo.
+		\item No ponto $x_2 = \dfrac{\mu \pm \mu}{\ln a}$, a concavidade muda de volta para cima.
+		\item Continua a decrescer com concavidade para cima, aproximando-se assintoticamente de 0.
+	\end{enumerate}
+
+\end{document}
