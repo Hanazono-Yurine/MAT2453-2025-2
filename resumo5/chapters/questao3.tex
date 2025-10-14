@@ -1,0 +1,85 @@
+\documentclass[../resumo.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+
+\begin{document}
+
+	\subsection{Verificação da Desigualdade $e^x \leq (1+x)^{1+x}$ para $x > 0$}
+
+	Para verificar a validade da desigualdade, primeiramente aplicamos o logaritmo natural em ambos
+	os lados. Como a função $y = \ln(u)$ é estritamente crescente para $u > 0$, o sentido da
+	desigualdade é preservado.
+
+	\[ \ln(e^x) \leq \ln((1+x)^{1+x}) \]
+
+	Aplicando as propriedades dos logaritmos, obtemos:
+
+	\[ x \leq (1+x) \cdot \ln(1+x) \]
+
+	Para provar esta nova inequação, definimos a função auxiliar $f(x)$:
+
+	\[ f(x) = (1+x) \cdot \ln(1+x) - x \]
+
+	O nosso objetivo é mostrar que $f(x) \geq 0$ para todo $x > 0$. Para isso, analisamos a sua
+	primeira derivada, $f'(x)$:
+
+	\begin{align*}
+		f'(x) &= \frac{d}{dx}[(1+x) \cdot \ln(1+x) - x] \\
+		f'(x) &= \left(1 \cdot \ln(1+x) + (1+x) \cdot \left(\frac{1}{(1+x)}\right)\right) - 1 \\
+		f'(x) &= \ln(1+x) + 1 - 1 \\
+		f'(x) &= \ln(1+x)
+	\end{align*}
+
+	No domínio $x > 0$, o argumento do logaritmo, ($1+x$), é sempre maior que $1$. Como $ln(u) > 0$ para
+	$u > 1$, concluímos que $f'(x) > 0$ para todo $x > 0$. Isso significa que a função $f(x)$
+	é estritamente crescente no intervalo ($0, \infty$).
+
+	Avaliando o valor da função no início do domínio, em $x = 0$:
+
+	\begin{align*}
+		f(0) &= (1+0) \cdot \ln(1+0) - 0 \\
+				 &= 1 \cdot 0 - 0 \\&
+				 &= 0
+	\end{align*}
+
+	Como $f(0) = 0$ e a função é estritamente crescente para $x > 0$, segue que $f(x) > 0$ para todo $x > 0$. Isso prova a desigualdade.
+
+	\subsubsection{Conclusão}
+
+	A afirmação $e^x \leq (1+x)^{1+x}$ é verdadeira para todo $x > 0$.
+
+	\subsection{Verificação da Desigualdade $x + \dfrac{1}{x^2} \leq 2$ para $0 < x < 1$}
+
+	Para verificar esta desigualdade, definimos a função $g(x)$ como o lado esquerdo da expressão:
+
+	\[ g(x) = x + \frac{1}{x^2} \]
+
+	Devemos determinar se $g(x) \leq 2$ no intervalo $(0, 1)$. Analisamos a primeira derivada de $g(x)$:
+
+	\begin{align*}
+		g'(x) &= \frac{d}{dx}[x + x^{-2}] \\
+		g'(x) &= 1 - 2x^{-3} \\
+		g'(x) &= 1 - \frac{2}{x^3}
+	\end{align*}
+
+	No intervalo $0 < x < 1$, temos que $0 < x^3 < 1$. Consequentemente, o termo $\dfrac{1}{x^3}$ é
+	maior que $1$, e $\dfrac{2}{x^3}$ é maior que $2$. Assim, a derivada $g'(x)$ é a diferença
+	entre $1$ e um número maior que $2$, resultando em:
+
+	$g'(x) < 0$ para todo $x$ no intervalo $(0, 1)$
+
+	Como a derivada é sempre negativa no intervalo, a função $g(x)$ é estritamente decrescente em $(0, 1)$.
+	Para encontrar o valor mínimo da função no intervalo, avaliamos o limite no ponto extremo direito,
+	quando $x$ tende a $1$:
+
+	\[ \lim_{x\to1} g(x) = 1 + \frac{1}{1^2} = 2 \]
+
+	Dado que a função é estritamente decrescente e se aproxima de $2$ quando $x$ tende a $1$, para qualquer $x$
+	no intervalo $(0, 1)$, o valor de $g(x)$ deve ser maior que $2$.
+
+	$g(x) > 2$ para todo $x$ no intervalo $(0, 1)$
+
+	\subsubsection{Conclusão}
+
+	A afirmação $x + \dfrac{1}{x^2} \leq 2$ é falsa no intervalo $0 < x < 1$.
+
+\end{document}

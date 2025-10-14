@@ -1,0 +1,43 @@
+O problema consiste em determinar o caminho mais
+curto do ponto Z ao ponto W, tocando uma linha reta (segmento UV) em um ponto P.
+Por definição, o caminho mais curto entre esses dois pontos é uma reta. Sendo assim, para que
+a distância $ZP + PW$ seja mínima, Z, P e W devem ser colineares.
+
+\subsection{Nomenclatura e definição geométrica}
+Segundo o diagrama no quadro, temos os seguintes valores:
+
+\begin{itemize}
+    \item q: a distância perpendicular do ponto Z à linha UV.
+    \item p: a distância perpendicular do ponto W à linha UV.
+    \item d: a distância horizontal entre as projeções dos pontos Z e W na linha UV.
+    \item x: a distância da projeção de Z até o ponto P.
+\end{itemize}
+
+Quando Z, P e W formam uma linha reta, nota-se que são formados dois triângulos retângulos
+semelhantes, como o diagrama apresentado em aula mostra.
+
+Esses dois triângulos retângulos (um com catetos q e x, e outro com catetos p e $d - x$)
+são semelhantes.Isso se dá pois eles compartilham os mesmos ângulos (opostos ao vértice P),
+e um ângulo reto.
+
+\subsection{Utilizando a semelhança de triângulos}
+
+Pela semelhança de triângulos, a razão entre os lados correspondentes é igual.
+Portanto, a razão entre os catetos verticais e os catetos horizontais de ambos os
+triângulos deve ser a mesma. Logo, temos que:
+
+\[\frac{q}{x} = \frac{p}{d - x}\]
+
+\subsection{Resolvendo para x}
+A partir da última equação, podemos encontrar o valor de x que minimiza a distância:
+
+\begin{align*}
+    q(d - x) &= px \\
+    qd - qx &= px \\
+    qd &= px + qx \\
+    qd &= x(p + q)
+\end{align*}
+
+Portanto, conclui-se que o ponto P que minimiza a função
+$f(x) = ZP + PW$ é aquele cuja distância x da extremidade esquerda U é dada por:
+\[x = \frac{qd}{p + q}\]

@@ -1,0 +1,117 @@
+\documentclass[../resumo.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+
+\begin{document}
+
+	\subsection{Encontrando o mínimo da Função $f(x) = e^{x/e}-x$}
+
+	\subsubsection{Primeira derivada $(f'(x))$}
+
+	Usamos a regra da cadeia para a parte exponencial
+
+	\begin{align*}
+		\frac{d}{dx} e^{\dfrac{x}{e}} &= e^{x/e} \cdot \frac{d}{dx} \left( \frac{x}{e} \right) \\
+																	&= e^{x/e} \frac{1}{e}
+	\end{align*}
+
+	\begin{align*}
+		f'(x) &= \frac{d}{dx} ( e^{x/e} - x ) \\
+					&= \frac{1}{e} e^{x/e} -1 \\
+		f'(x) &= e^{x/e - 1} - 1
+	\end{align*}
+
+	\subsubsection{Pontos Críticos}
+
+	Definimos $f'(x) = 0$
+
+	\begin{align*}
+		e^{x/e -1} - 1 &= 0 \\
+				e^{x/e -1} &= 1
+	\end{align*}
+
+	Como $e^x = 1$, o expoente deve ser zero:
+
+	\begin{align*}
+		\frac{x}{e} - 1 &= 0 \\
+		\frac{x}{e} &= 1 \Rightarrow x = e
+	\end{align*}
+
+	O único ponto crítico é $x = e$
+
+	\subsubsection{Segunda derivada para classificar o ponto crítico}
+
+	\begin{align*}
+		f''(x) &= \frac{d}{dx} ( e^{x/e -1} - 1 ) \\
+					 &= e^{x/e - 1} \cdot \frac{1}{e} \\
+		f''(x) &= \frac{1}{e} e^{x/e - 1}
+	\end{align*}
+
+	\subsubsection{Teste da segunda derivada}
+
+	Avaliamos $f''(x)$ no ponto crítico $x = e$
+
+	\begin{align*}
+		f''(e) &= \frac{1}{e} e^{e/e -1} \\
+					 &= \frac{1}{e} e^{1 - 1} \\
+					 &= \frac{1}{e} e^0 \\
+					 &= \frac{1}{e}
+	\end{align*}
+
+	Como $f''(e) = \dfrac{1}{e} > 0$, a função tem um mínimo local em $x = e$
+
+	\subsubsection{Analise do mínimo global}
+
+	Para $x < e$: $\dfrac{x}{e} < 1$ então $\dfrac{x}{e} - 1 < 0$ logo $e^{x/e -1} < e^0 = 1$
+
+	$f'(x) = e^{x/e-1}-1 < 0$ (função decrescente)
+
+	Para $x > e$: $\dfrac{x}{e} > 1$ então $\dfrac{x}{e} - 1 > 0$ logo $e^{x/e -1} -1 > 0$ (função crescente)
+
+	Como a função e estritamente decrescente antes de $x = e$ e estritamente crecente depois de $x = e$,
+	o mínimo local em $x = e$ é um mínimo global.
+
+	\textbf{Mínimo Global:}
+
+	\begin{align*}
+		f(e) &= e^{e/e} - e \\
+				 &= e^1 - e \\
+				 &= e - e \\
+				 &= 0
+	\end{align*}
+
+	Logo o valor mínimo da função $f(x) e^{x/e}-x$ é $0$.
+
+	\subsection{Qual é maior, $\pi^e$ ou $e^\pi$}
+
+	A comparação entre $\pi^e$ e $e^\pi$ é equivalente a comparar $\ln(\pi^e)$ e $\ln(e^\pi)$.
+
+	\begin{align*}
+		\ln(\pi^e) &= e \ln(\pi) \\
+		\ln(e^\pi) &= \pi
+	\end{align*}
+
+	Comparar $e \ln(\pi)$ e $\pi$ é equivalente a comparar $\dfrac{\ln(\pi)}{\pi}$ e $\dfrac{1}{e}$
+	(ou $\dfrac{\ln(e)}{e}$)
+
+	Como $e \approx 2.718$ e $\pi \approx 3.1415$, temos que $\pi > e$. Como $x = e$ é o ponto máximo
+	de $g(x) = \dfrac{\ln(x)}{x}$, e $\pi$ está a direita de $e$ na parte da crescente do gráfico temos:
+
+	\begin{align*}
+		g(\pi) &< g(e) \\
+		\frac{\ln(\pi)}{\pi} &< \frac{\ln(e)}{e}
+	\end{align*}
+
+	Multiplicanto por $e\pi$ (positivo):
+
+	\begin{align*}
+		e\ln(\pi) &< \pi\ln(e) \\
+		\ln(\pi^e) &< \ln(e^\pi)
+	\end{align*}
+
+	Como $\ln(x)$ é uma função crescente, a desigualdade se mantém:
+
+	\[ \pi^e < e^\pi \]
+
+	Logo o maior é \textbf{$e^\pi$}
+
+\end{document}
