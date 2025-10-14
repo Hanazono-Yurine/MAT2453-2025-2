@@ -1,0 +1,118 @@
+\documentclass[../resumo.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+
+\begin{document}
+
+\subsection{Comprimento máximo de um segmento passando pela esquina}
+
+	Considere dois corredores perpendiculares com larguras $L$ (horizontal) e $l$ (vertical).
+	Queremos o maior comprimento $d$ de um segmento rígido que pode ser transportado ao longo da
+	esquina sem dobrar. Coloque um sistema de coordenadas com o canto interior da esquina na origem;
+	o corredor horizontal se estende para $x \geq 0$ com $0 \leq y \leq l$, e o corredor vertical
+	para $y \geq 0$ com $0 \leq x \leq L$.
+
+	\subsection{Modelo geométrico}
+
+	Posicione o segmento de modo que, ao atravessar a esquina, uma extremidade esteja no corredor
+	horizontal e a outra no corredor vertical. Imagine o segmento tocando as paredes internas em dois pontos:
+	um contato com a parede superior do corredor horizontal (reta $y = l$) e outro contacto com a parede direita
+	do corredor vertical (reta $x = L$). Seja $\theta$ o ângulo que o segmento faz com o eixo horizontal
+	quando parte do trecho horizontal; representamos por a a projeção horizontal do segmento entre o ponto onde
+	toca $y = l$ e o canto, e por $b$ a projeção vertical entre o ponto onde toca $x = L$ e o canto.
+	Assim temos que o comprimento do segmento deve satisfazer
+	
+	\[ d = a + b \]
+	
+	quando projetado nas direções dos corredores, porém as projeções $a$ e $b$ relacionam-se com o comprimento real
+	pela geometria do ângulo. Para cada posição $\theta$, as projeções mínimas requeridas para que o segmento passe são
+
+	\[ a = \frac{l}{\sin\theta},\qquad b = \frac{L}{\cos\theta},\]
+
+	pois, ao projetar a porção que fica no corredor horizontal sobre a direção $x$, a distância ao longo do segmento que
+	corresponde à altura $l$ é $\dfrac{l}{sin\theta}$; analogamente para $b$ com $\dfrac{L}{cos\theta}$.
+	Portanto, o comprimento necessário como função de $\theta$ é
+
+	\[ d(\theta)=\frac{l}{\sin\theta}+\frac{L}{\cos\theta},\qquad \theta\in(0,\tfrac{\pi}{2}) \]
+
+	\subsection{Otimização}
+
+	Queremos o mínimo possível de $d(\theta)$ (esse mínimo é o comprimento máximo que ainda cabe; para comprimentos maiores
+	não é possível). Derivando em relação a $\theta$ e anulando a derivada,
+	
+	\[ \frac{d}{d\theta}d(\theta) = -l\frac{\cos\theta}{\sin^2\theta}+L\frac{\sin\theta}{\cos^2\theta}=0 \]
+	
+	Multiplicando ambos os lados por \(\sin^2\theta\cos^2\theta\) obtemos
+	
+	\begin{align*}
+		- l\cos^3\theta + L\sin^3\theta = 0
+		\quad\Longrightarrow\quad
+		L\sin^3\theta = l\cos^3\theta.
+	\end{align*}
+	
+	Isto dá a relação
+
+	\begin{align*}
+		\left(\frac{\sin\theta}{\cos\theta}\right)^3 = \frac{l}{L}
+		\quad\Longrightarrow\quad
+		\tan\theta = \left(\frac{l}{L}\right)^{1/3}.
+	\end{align*}
+
+	Substitua essa condição em $d(\theta)$. É conveniente escrever \(\sin\theta\) e \(\cos\theta\) em termos de $t = \tan\theta$:
+
+	\[
+	\sin\theta=\frac{t}{\sqrt{1+t^2}},\qquad
+	\cos\theta=\frac{1}{\sqrt{1+t^2}}.
+	\]
+
+	Com \(t=(l/L)^{1/3}\) obtemos
+
+	\[
+	\frac{1}{\sin\theta}=\frac{\sqrt{1+t^2}}{t},\qquad
+	\frac{1}{\cos\theta}=\sqrt{1+t^2}.
+	\]
+
+	Logo
+
+	\[
+	d_{\min}=l\frac{\sqrt{1+t^2}}{t}+L\sqrt{1+t^2}=(l/t+L)\sqrt{1+t^2}.
+	\]
+
+	Substituindo t e simplificando:
+	\[
+	l/t = l\,(l/L)^{-1/3}=l^{2/3}L^{1/3},\qquad
+	L = L^{2/3}L^{1/3}=L^{2/3}L^{1/3}.
+	\]
+
+	Assim
+
+	\[
+	l/t+L = l^{2/3}L^{1/3}+L^{2/3}L^{1/3}=(l^{2/3}+L^{2/3})\,L^{1/3}.
+	\]
+
+	Também
+
+	\[
+	\sqrt{1+t^2}=\sqrt{1+(l/L)^{2/3}}=L^{-1/3}\sqrt{L^{2/3}+l^{2/3}}.
+	\]
+
+	Multiplicando os fatores:
+
+	\begin{align*}
+		d_{\min} &= (l^{2/3}+L^{2/3})\, L^{1/3}\times L^{-1/3}\sqrt{L^{2/3}+l^{2/3}} \\
+						 &= (l^{2/3}+L^{2/3})\sqrt{l^{2/3}+L^{2/3}}
+	\end{align*}
+
+	Finalmente,
+
+	\[
+		d_{\max}=\bigl(l^{2/3}+L^{2/3}\bigr)^{3/2}
+	\]
+
+	que é a expressão desejada.
+
+	\subsection{Observação curta}
+
+	A minimização de $\dfrac{l}{\sin\theta}+\dfrac{L}{\cos\theta}$ conduz à condição $\tan^3\theta=\dfrac{l}{L}$ e da simplificação algébrica
+	surge a expressão em potências $\dfrac{2}{3}$ e $\dfrac{3}{2}$ acima.
+
+\end{document}
