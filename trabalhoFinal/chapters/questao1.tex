@@ -1,0 +1,235 @@
+\documentclass[../resumo.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+
+\begin{document}
+
+	\subsection{Enunciado}
+
+	Cálculo da integral gaussiana, $\int_{-\infty}^{\infty} e^{-x^2} dx$, utilizando o chamado 
+	“Feynman’s trick” assim trabalhar	com um parâmetro real (auxiliar) de modo a considerar uma
+	integral dependente desse parâmetro, digamos $f$, $\int_{-\infty}^{\infty} F(x, t) dx = \varphi(t)$
+	que a integral gaussiana é um dos valores de $varphi$ digamos para $t = 0$,
+	$\varphi(0) = \int_{-\infty}^{\infty} F(x,0) dx$ e $F(x,0) = e^{-x^2}$, além disso o “truque de Feynman”
+	entra em cena ao se considerar $\varphi'(t)$ e iguala-lá à
+	$\int_{-\infty}^{\infty} \dfrac{\partial F}{\partial t}(x,t) dx$,	relaciona - lá novamente com $\varphi(t)$,
+	obtendo uma equação diferencial relativamente simples para $\varphi(t)$, determinar $\varphi$ a partir disso,
+	e finalmente calcular $\varphi(0)$.
+
+	\subsection{Escolha de $F(x,t)$ (condição $F(x,t) = e^{-x^2}$)}
+
+	Escolhemos a forma simples que preserva a estrutura gaussiana:
+
+	\[ F(x,t) = e^{-(1+t)x^2} \]
+
+	Verifique: $F(x,0) = e^{-x^2}$, como exigido. Para convergência das integrais precisamos $1+t > 0$,
+	então trabalhamos para $t > -1$.
+
+	Defina
+
+	\begin{align*}
+		\varphi(t) &= \int_{-\infty}^{\infty} F(x,t) dx \\
+							 &= \int_{-\infty}^{\infty} e^{-(1+t)x^2} dx, \quad t > -1
+	\end{align*}
+
+	\subsection{Justificativa para troca derivada e integral}
+
+	Queremos calcular $\varphi'(t)$ por
+
+	\begin{align*}
+		\varphi'(t) &= \dfrac{d}{dt} \int_{-\infty}^{\infty} F(x,t) dx \\
+								&= \int_{-\infty}^{\infty} \dfrac{\partial F}{\partial t}(x,t) dx
+	\end{align*}
+
+	Para trocar derivada e integral usamos o \textbf{Teorema da Convergência Dominada}.
+
+
+	Calculamos a derivada parcial:
+
+	\begin{align*}
+		\frac{\partial F}{\partial t}(x,t) &= \frac{\partial}{\partial t} e^{-(1+t)x^2} \\
+																			 &= -x^2 e^{-(1+t)x^2}
+	\end{align*}
+
+	Se fixarmos um intervalo compacto de $t$ contido em $[-1, \infty]$, digamos $t \in [t_0, t_1]$ com $t_0 > -1$,
+	então $1 + t \geq 1 + t_0 > 0$ nesse intervalo. Logo
+
+	\[ \left[ -x^2 e^{-(1+t)x^2} \right] \leq x^2 e^{-(1+t_0)x^2} \]
+
+	A função $x \longmapsto x^2 e^{-(1+t_0)x^2}$ e integrável em $\mathbb{R}$ (uma gaussiana domina qualquer polinômio).
+	Assim existe uma função integrável que domina $| \varphi, F (x,t)|$ uniformemente em $t \in [t_0, t_1]$.
+
+	Portanto, por convergência dominada, a troca é válida e podemos escrever
+
+	\[ \varphi'(t) = \int_{-\infty}^{\infty} \frac{\partial F}{\partial t}(x,t) dx \]
+
+	\subsection{Cálculo de $\varphi'(t)$}
+
+	\begin{align}
+		\varphi'(t) &= \int_{-\infty}^{\infty} e^{-(1+t)x^2} dx \notag\\
+								&= -\int_{-\infty}^{\infty} x^2 e^{-(1+t)x^2}dx \label{eq:a}
+	\end{align}
+
+	\subsection{Relacionar essa integral com $\varphi(t)$ (mudança de variável)}
+
+	Trocar $\varphi(t)$ por uma variável conveniente.
+
+	Comece por escrever $\varphi(t)$:
+
+	\[ \varphi(t) = \int_{-\infty}^{\infty} e^{-(1+t)x^2} dr \]
+
+	Faça $u = \sqrt{1+t} \; x$. Então
+
+	\begin{align*}
+		x &= \frac{u}{\sqrt{1+t}} \\
+			&= \frac{1}{\sqrt{1+t}} \int_{-\infty}^{\infty} e^{-u^2} du
+	\end{align*}
+
+	Defina a constante (independente de $t$)
+
+	\[ C = \int_{-\infty}^{\infty} e^{-u^2} du \]
+
+	Logo
+
+	\begin{align}
+		\varphi(t) = C(1+t)^{-\dfrac{1}{2}} \label{eq:b}
+	\end{align}
+
+	Em \eqref{eq:a} substitua $x = \dfrac{u}{\sqrt{1+t}}$. Então $x^2 = \dfrac{u^2}{1+t}$ e
+	$dx = \dfrac{du}{\sqrt{1+t}}$. Assim
+
+	\begin{align*}
+		&\quad \int_{-\infty}^{\infty} x^2 e^{-(1+t)x^2} dx \\
+		&= \int_{-\infty}^{\infty} \frac{u^2}{1+t} e^{-u^2} \frac{du}{\sqrt{1+t}} \\
+		&= \frac{1}{(1+t)^{\dfrac{3}{2}}} \int_{-\infty}^{\infty} u^2 e^{-u^2} du
+	\end{align*}
+
+	Portanto \eqref{eq:a} vira
+
+	\begin{align}
+		\varphi'(t) = -\frac{1}{(1+t)^{\dfrac{3}{2}}} \int_{-\infty}^{\infty} u^2 e^{-u^2} du \label{eq:c}
+	\end{align}
+
+	Podemos agora relacionar \eqref{eq:c} com \eqref{eq:b} derivando \eqref{eq:b} (é mais direto):
+
+	Derivando \eqref{eq:b}
+
+	\begin{align*}
+		\varphi'(t) &= C \cdot \left( -\frac{1}{2} \right)(1+t)^{-\dfrac{3}{2}} \\
+								&= - \frac{1}{2} C (1+t)^{-\dfrac{3}{2}}
+	\end{align*}
+
+	Compare isso com \eqref{eq:c}. Para compatibilidade, deve valer
+
+	\begin{align*}
+		&\quad \int_{-\infty}^{\infty} u^2 e^{-u^2} du \\
+		&= \frac{1}{2} \int_{-\infty}^{\infty} e^{-u^2} du \\
+		&= \frac{1}{2} C
+	\end{align*}
+
+	o que é verdade (pode-se ver por integração por partes ou usando simetrias).
+	Assim obtemos a EDO diretamente:
+
+	\begin{align}
+		\varphi'(t) = -\frac{1}{2(1+t)} \varphi(t) \label{eq:d}
+	\end{align}
+
+	\subsection{Resolver a EDO detalhadamente (separação de variáveis)}
+
+	A EDO \eqref{eq:d} é de primeira ordem e separável:
+
+
+	\[ \frac{d\varphi}{dt} = -\frac{1}{2(1+t)} \; \varphi(t) \]
+
+	Separe as variáveis
+
+	\[ \frac{1}{\varphi} d \varphi = -\frac{1}{2(1+t)} dt \]
+
+	Integre ambos os lados (integral indefinida):
+
+	Integral $\dfrac{1}{\varphi}$ dp = integral $-\dfrac{1}{2(1+t}dt) \Rightarrow \ln|\varphi| = \dfrac{1}{2}\ln|1+t| + C_1$
+
+	onde $C_1$ é uma constante de integração.
+
+	Exponenciando,
+
+	\[ |\varphi| = e^{C_1} |1+t| x^{-\dfrac{1}{2}} \]
+
+	Com $\varphi(t) > 0$ para $t > -1$, podemos escrever sem módulo:
+
+	\[ \varphi(t) = C (1+t)^{-\dfrac{1}{2}}, \quad t > -1 \]
+
+	\subsection{Determinar a constante $C=\varphi(0)$ (método do quadrado)}
+
+	Para achar
+
+	\[ C = \varphi(0) = \int_{-\infty}^{\infty} e^{-x^2} dx \]
+
+	Denote $I = \int_{-\infty}^{\infty} e^{-x^2} dx$
+
+	Escreva $I^2$ como produto de duas integrais idênticas:
+
+	\[ I^2 = \left( \int_{-\infty}^{\infty} e^{-x^2} dx \right) \left( \int_{-\infty}^{\infty} e^{-y^2} dy \right) \]
+
+	Combine em integral dupla:
+
+	\[ I^2 = \iint_{\mathbb{R}}^{} e^{-|x^2 + y^2|} dxdy \]
+
+	Mude para coordenadas polares: $x = r \cos \theta, y = r\sin \theta$
+
+	Jacobiano: $dx dy = r \; dr \; d \; \theta $
+
+	Região $\mathbb{R}$ corresponde a $r \in [0, \infty], \theta \in [0, 2\pi]$. Assim:
+
+	\[ I^2 = \int_{0}^{2\pi} \int_{0}^{\infty} e^{-r^2 r \; dr \; d \; \theta} \]
+
+	Separe integrais (produto):
+
+	\begin{align*}
+		I^2 &= \left( \int_{0}^{2\pi} d \theta \right) \left( \int_{0}^{\infty} r \; e^{-r^2} \; dr \theta \right) \\
+				&= 2 \pi \int_{0}^{\infty} r \; e^{-r^2} \; dr
+	\end{align*}
+
+	Calcule $\int_{0}^{\infty} r \; e^{-r^2} \; dr$ po substituição.
+
+	Seja $u = r^2$. Então $du = 2r \Rightarrow r \; dr = \frac{1}{2} du$.
+
+	Quando $r:0 \rightarrow \infty$, então $u:0 \rightarrow \infty$.
+
+	Portanto
+
+	\[\int_{0}^{\infty} r \; e^{-r^2} dr = \frac{1}{2} \int_{0}^{\infty} e^{-u} du \]
+
+	E
+
+	\[ \int_{0}^{\infty} e^{-u} du = \left[ -e^{-u} \right]_{0}^{\infty} = 1 \]
+
+	Logo
+
+	\[ \int_{0}^{\infty} r \; e^{-r^2} dr = \frac{1}{2} \]
+
+	Substitua de volta:
+
+	\[ I^2 = 2 \pi \frac{1}{2} = \pi \]
+
+	Como $I > 0$ conclui-se:
+
+	\[ I = \sqrt{\pi} \]
+
+	\subsection{Resultado e verificação}
+
+	Substituindo $C = \sqrt{\pi}$ em $\varphi(t) = C(1+t)^{-\dfrac{1}{2}}$ obtemos, para $t > -1$
+
+	\begin{align*}
+		\varphi(t) &= \int_{-\infty}^{\infty} F(x,t) dx \\
+							 &= \int_{-\infty}^{\infty} e^{(-1+t)x^2} dx \\
+							 &= \frac{\sqrt{\pi}}{\sqrt{1+t}}
+	\end{align*}
+
+	\begin{align*}
+		\varphi(0) &= \int_{-\infty}^{\infty} F(x,0) dx \\
+							 &= \int_{-\infty}^{\infty} e^{-x^2} dx \\
+							 &= \sqrt{\pi}
+	\end{align*}
+	
+
+\end{document}

@@ -1,0 +1,56 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage{graphicx} % Required for inserting images
+\graphicspath{{images/}}
+\usepackage[brazilian]{babel}
+\usepackage[a4paper, left=30mm, right=20mm, top=30mm, bottom=20mm]{geometry}
+\usepackage{float} % pra conseguir usar o \begin{figure}[H]
+\usepackage{indentfirst} % pra fazer tab n 1 paragrafos dos capitulos
+% package pra tabela
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{subfiles}
+\usepackage{mathtools,amssymb}
+
+\renewcommand{\contentsname}{Sumário}
+
+\title{
+	Trabalho de Cálculo I - MAT2453
+}
+
+\author{
+	Alunos:
+	\\  
+	\\ {{PERSON-1}} - N.USP: {{PERSON-ID-1}}
+	\\ {{PERSON-2}} - N.USP: {{PERSON-ID-2}}
+	\\ {{PERSON-5}} - N.USP: {{PERSON-ID-5}}
+	\\ {{PERSON-3}} - N.USP: {{PERSON-ID-3}}
+	\\ {{PERSON-4}} - N.USP: {{PERSON-ID-4}}
+	\\ {{PERSON-6}} - N.USP: {{PERSON-ID-6}}
+	\\ \\
+	Grupo: Filhos de Turing
+	\\ Professor: Odilson Otavio Luciano
+}
+
+\date{\today}
+
+\begin{document}
+
+	\maketitle
+	\thispagestyle{empty}
+	\newpage
+
+	\clearpage
+	\thispagestyle{empty}
+	\hfill
+	\clearpage
+
+	\tableofcontents
+	
+	\newpage
+
+	\section{Questão}
+
+	\subfile{chapters/questao1}
+	\newpage
+
+\end{document}
